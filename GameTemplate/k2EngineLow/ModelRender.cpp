@@ -44,11 +44,11 @@ namespace nsK2EngineLow {
 			initData.m_vsEntryPointFunc = "VSMain";
 		}
 		/*
-		initData.m_expandConstantBuffer = &g_directionLig;
-		initData.m_expandConstantBufferSize = sizeof(g_directionLig);
+		initData.m_expandConstantBuffer = &g_pointLig;
+		initData.m_expandConstantBufferSize = sizeof(g_pointLig);
 		*/
-		initData.m_expandConstantBuffer = &g_directionLig;
-		initData.m_expandConstantBufferSize = sizeof(g_directionLig);
+		initData.m_expandConstantBuffer = &g_directionLig.GetLight();
+		initData.m_expandConstantBufferSize = sizeof(g_directionLig.GetLight());
 		
 
 		// アニメーションを初期化。

@@ -17,10 +17,10 @@ void Game::Update()
 	// 左スティック(キーボード：WASD)で平行移動。
 	m_pointligpos.x += g_pad[0]->GetLStickXF();
 	m_pointligpos.y += g_pad[0]->GetLStickYF();
-	g_directionLig.SetPointPos(m_pointligpos);
+//	g_directionLig.SetPointPos(m_pointligpos);
 	//ディレクションライトの当たる方向とカラーをセットできちゃいます
-	g_directionLig.SetLigDirection({ 1.0f,-1.0f,-1.0f });
-	g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
+//	g_directionLig.SetLigDirection({ -1.0f,-1.0f,-1.0f });
+//	g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
 }
 void Game::Render(RenderContext& rc)
 {

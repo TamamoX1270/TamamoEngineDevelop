@@ -10,6 +10,7 @@ namespace nsK2EngineLow {
 			//HLSL側の定数バッファのfloat3型の変数は16の倍数のアドレスに配置されるため、C++側にはパディングを埋めておく。
 			float pad;
 			Vector3 ligColor;
+			float pad1;
 		};
 		struct PointLightST
 		{
@@ -25,6 +26,14 @@ namespace nsK2EngineLow {
 			float pad3;
 			Vector3 ambientLight;   // アンビエントライト
 		};
+
+		struct Light
+		{
+			DirectionLightST            m_directionLig;				//ディレクションライトのデータを作成する。
+			PointLightST                m_pointLig;                 //ポイントライトのデータを作成する。
+			AmbientLightST              m_ambientLig;               //環境光のデータを作成する。
+		};
+
 	public:
 		DirectionLight();
 		~DirectionLight();
@@ -34,7 +43,7 @@ namespace nsK2EngineLow {
 		/// <param name="lig"></param>
 		void SetLigDirection(const Vector3& lig)
 		{
-			m_directionLig.ligDirection = lig;
+			m_light.m_directionLig.ligDirection = lig;
 		}
 		/// <summary>
 		/// ディレクションライトの色を設定
@@ -42,7 +51,7 @@ namespace nsK2EngineLow {
 		/// <param name="col"></param>
 		void SetLigColor(const Vector3& col)
 		{
-			m_directionLig.ligColor = col;
+			m_light.m_directionLig.ligColor = col;
 		}
 		/// <summary>
 		/// ポイントライトの位置を設定
@@ -50,7 +59,7 @@ namespace nsK2EngineLow {
 		/// <param name="col"></param>
 		void SetPointPos(const Vector3& pos)
 		{
-			m_pointLig.ptPosition = pos;
+			m_light.m_pointLig.ptPosition = pos;
 		}
 		/// <summary>
 		/// ポイントライトの色を設定
@@ -58,20 +67,14 @@ namespace nsK2EngineLow {
 		/// <param name="col"></param>
 		void SetPointColor(const Vector3& col)
 		{
-			m_pointLig.ptColor = col;
+			m_light.m_pointLig.ptColor = col;
 		}
-		DirectionLightST& GetDirectionLight()
+		Light& GetLight()
 		{
-			return m_directionLig;
-		}
-		PointLightST& GetPointLight()
-		{
-			return m_pointLig;
+			return m_light;
 		}
 	private:
-		DirectionLightST            m_directionLig;				//ディレクションライトのデータを作成する。
-		PointLightST                m_pointLig;                 //ポイントライトのデータを作成する。
-		AmbientLightST              m_ambientLig;               //環境光のデータを作成する。
+		Light m_light;
 	};
 
 	//他の場所でも読み込めるようにグローバルにする。

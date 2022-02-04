@@ -231,6 +231,9 @@
     <ClCompile Include="DirectionLight.cpp">
       <Filter>graphics</Filter>
     </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k2EngineLowPreCompile.h" />
@@ -510,6 +513,9 @@
       <Filter>graphics</Filter>
     </ClInclude>
     <ClInclude Include="DirectionLight.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
       <Filter>graphics</Filter>
     </ClInclude>
   </ItemGroup>
