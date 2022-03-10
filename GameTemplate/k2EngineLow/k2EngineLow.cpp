@@ -5,13 +5,15 @@
 namespace nsK2EngineLow {
 	K2EngineLow* g_engine = nullptr;
 	GameTime* g_gameTime = nullptr;
+	CollisionObjectManager* g_collisionObjectManager = nullptr;
 
 	K2EngineLow::~K2EngineLow()
 	{
 		// グローバルなアクセスポイントにnullptrを代入。
 		g_graphicsEngine = nullptr;
 		g_gameTime = nullptr;
-		
+		g_collisionObjectManager = nullptr;
+
 		delete m_graphicsEngine;
 		
 		//ゲームオブジェクトマネージャーを削除。
@@ -29,6 +31,7 @@ namespace nsK2EngineLow {
 			m_graphicsEngine->Init(hwnd, frameBufferWidth, frameBufferHeight);
 		}
 		g_gameTime = &m_gameTime;
+		g_collisionObjectManager = &m_collisionObjectManager;
 		//ゲームパッドの初期化。
 		for (int i = 0; i < GamePad::CONNECT_PAD_MAX; i++) {
 			g_pad[i] = &m_pad[i];

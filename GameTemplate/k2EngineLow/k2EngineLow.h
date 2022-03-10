@@ -206,6 +206,7 @@ namespace nsK2EngineLow {
 		std::unique_ptr<Font> m_fpsFont;
 		std::unique_ptr<Font> m_fpsFontShadow;
 #endif
+		CollisionObjectManager m_collisionObjectManager;// コリジョンオブジェクトマネージャー。
 		GraphicsEngine* m_graphicsEngine = nullptr;		// グラフィックエンジン。
 		TResourceBank<TkmFile> m_tkmFileBank;			// tkmファイルバンク。
 		TResourceBank<Shader> m_shaderBank;				// シェーダーバンク
@@ -221,5 +222,6 @@ namespace nsK2EngineLow {
 
 	extern K2EngineLow* g_engine;	// 低レベルK2エンジン。
 	extern GameTime* g_gameTime;
+	extern CollisionObjectManager* g_collisionObjectManager;
 }
 

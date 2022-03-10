@@ -234,6 +234,16 @@
     <ClCompile Include="PointLight.cpp">
       <Filter>graphics</Filter>
     </ClCompile>
+    <ClCompile Include="RenderingEngine.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRender.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="FontRender.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k2EngineLowPreCompile.h" />
@@ -518,6 +528,16 @@
     <ClInclude Include="PointLight.h">
       <Filter>graphics</Filter>
     </ClInclude>
+    <ClInclude Include="RenderingEngine.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRender.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="FontRender.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="graphics">

@@ -14,16 +14,26 @@ namespace nsK2EngineLow {
 		};
 		struct PointLightST
 		{
-			// step-1 ライト構造体にポイントライト用のメンバ変数を追加する
+			//ライト構造体にポイントライト用のメンバ変数を追加する
 			Vector3 ptPosition;		//位置。
 			float pad2;					//パディング。
 			Vector3 ptColor;			//カラー。
 			float ptRange;				//影響範囲。
 		};
+		struct SpotLightST
+		{
+			//ライト構造体にスポットライト用のメンバ変数を追加する
+			Vector3 spPosition;		//位置。
+			float pad3;					//パディング。
+			Vector3 spColor;			//カラー。
+			float spRange;				//影響範囲。
+			Vector3 spDirection;	//射出方向。
+			float spAngle;				//射出角度。
+		};
 		struct AmbientLightST
 		{
 			Vector3 eyePos;         // 視点の位置
-			float pad3;
+			float pad4;
 			Vector3 ambientLight;   // アンビエントライト
 		};
 
@@ -31,12 +41,17 @@ namespace nsK2EngineLow {
 		{
 			DirectionLightST            m_directionLig;				//ディレクションライトのデータを作成する。
 			PointLightST                m_pointLig;                 //ポイントライトのデータを作成する。
+			SpotLightST					m_spotLig;					//スポットライトのデータを作成する。
 			AmbientLightST              m_ambientLig;               //環境光のデータを作成する。
 		};
 
 	public:
 		DirectionLight();
 		~DirectionLight();
+		/// <summary>
+		/// 更新処理
+		/// </summary>
+		void Update();
 		/// <summary>
 		/// ディレクションライトの方向を設定
 		/// </summary>
@@ -68,6 +83,30 @@ namespace nsK2EngineLow {
 		void SetPointColor(const Vector3& col)
 		{
 			m_light.m_pointLig.ptColor = col;
+		}
+		/// <summary>
+		/// スポットライトの位置を設定
+		/// </summary>
+		/// <param name="col"></param>
+		void SetSpotPos(const Vector3& pos)
+		{
+			m_light.m_spotLig.spPosition = pos;
+		}
+		/// <summary>
+		/// スポットライトの色を設定
+		/// </summary>
+		/// <param name="col"></param>
+		void SetSpotColor(const Vector3& col)
+		{
+			m_light.m_spotLig.spColor = col;
+		}
+		/// <summary>
+		/// スポットライトの射出方向を設定
+		/// </summary>
+		/// <param name="dil"></param>
+		void SetSpotDir(const Vector3& dil)
+		{
+			m_light.m_spotLig.spDirection = dil;
 		}
 		Light& GetLight()
 		{
