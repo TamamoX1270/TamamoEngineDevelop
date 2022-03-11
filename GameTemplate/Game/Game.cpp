@@ -7,32 +7,34 @@
 
 bool Game::Start()
 {
-	m_spriteRender.Init("Assets/sprite/gameclear.dds", 1600.0f, 900.0f);
+//	m_spriteRender.Init("Assets/sprite/gameclear.dds", 1600.0f, 900.0f);
 	//プレイヤーオブジェクトを作成する。
 	m_player = NewGO<Player1>(0, "player1");
-	m_player2 = NewGO<Player2>(0, "player2");
+//	m_player2 = NewGO<Player2>(0, "player2");
 	//背景オブジェクトを作成する。
-	m_backGround = NewGO<BackGround>(0, "background");
+//	m_backGround = NewGO<BackGround>(0, "background");
 
-	m_gameCamera = NewGO<GameCamera>(0, "gamecamera");
+//	m_gameCamera = NewGO<GameCamera>(0, "gamecamera");
 
 	return true;
 }
 void Game::Update()
 {
-	int b = 4;
+	int b = 55;
 	wchar_t wcsbuf1[256];
-	swprintf_s(wcsbuf1, 256, L"%d", b);
+	swprintf_s(wcsbuf1, 256, L"わたしはふぉんとれんだーです%d",b);
 
 	//表示するテキストを設定。
 	m_fontRender.SetText(wcsbuf1);
 	//フォントの位置を設定。
-	m_fontRender.SetPosition(Vector3(0.0f, 0.0f, 0.0f));
+	m_fontRender.SetPosition(Vector3(-400.0f, 300.0f, 0.0f));
 	//フォントの大きさを設定。
 	m_fontRender.SetScale(1.5f);
 	//黒色に設定
 	m_fontRender.SetColor(g_vec4White);
-	//(*･ω･)/ﾊｰｲ
+
+
+	//(*･ω･)/ﾊｰｲ( ´ ▽ ` )ﾉ
 	/*
 	// 左スティック(キーボード：WASD)で平行移動。
 	m_pointligpos.x += g_pad[0]->GetLStickXF();
@@ -69,17 +71,20 @@ void Game::Update()
 	//g_directionLig.SetLigDirection({ 0.0f,1.0f,-1.0f });
 
 
-	/*if (g_pad[0]->IsPress(enButtonB))
+	if (g_pad[0]->IsPress(enButtonB))
 	{
 		m_directionligColor.x += 0.1f;
-	}
-	if (g_pad[0]->IsPress(enButtonA))
-	{
 		m_directionligColor.y += 0.1f;
 		m_directionligColor.z += 0.1f;
 	}
-	g_directionLig.SetLigColor({ m_directionligColor });*/
-	g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
+	if (g_pad[0]->IsPress(enButtonA))
+	{
+		m_directionligColor.x -= 0.1f;
+		m_directionligColor.y -= 0.1f;
+		m_directionligColor.z -= 0.1f;
+	}
+	g_directionLig.SetLigColor({ m_directionligColor });
+	//g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
 }
 
 void Game::Try()

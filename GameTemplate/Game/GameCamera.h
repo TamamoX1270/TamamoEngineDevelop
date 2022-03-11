@@ -29,4 +29,5 @@ private:
 	Player1* m_player;	//プレイヤー。
 	Player2* m_player2;	//プレイヤー。
 	Vector3 m_toCameraPos;	//注視点から視点に向かうベクトル。
+	int m_CameraState = 0;
 };

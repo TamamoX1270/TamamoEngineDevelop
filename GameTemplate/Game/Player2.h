@@ -24,7 +24,7 @@ public:
 	/// <returns>プレイヤーの座標。</returns>
 	const Vector3 & GetPlayer2Position() const
 	{
-		return m_position2;
+		return m_position;
 	}
 
 private:
@@ -50,7 +50,7 @@ private:
 	Animation m_animation;	// アニメーション
 	AnimationClip m_animationClipArray[enAnimClip_Num];	// アニメーションクリップ
 	CharacterController m_characterController;       //キャラクターコントローラー。
-	Vector3 m_position2 = Vector3::Zero;				   // 座標
+	Vector3 m_position = Vector3::Zero;				   // 座標
 	Quaternion m_rotation = Quaternion::Identity;;     // 回転
 	Vector3 m_scale = Vector3::One;	                   // 拡大率
 };

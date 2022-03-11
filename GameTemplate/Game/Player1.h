@@ -27,21 +27,7 @@ public:
 		return m_position;
 	}
 
-private:
-	/// <summary>
-	/// 移動処理
-	/// </summary>
-	void Move();
 
-	/// <summary>
-	/// アニメーション管理
-	/// </summary>
-	void AnimationState();
-
-	/// <summary>
-	/// ステート管理
-	/// </summary>
-	void ManageState();
 
 private:
 	// アニメーションクリップの番号を表す列挙型。

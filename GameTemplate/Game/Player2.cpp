@@ -11,13 +11,15 @@ bool Player2::Start()
 	m_animationClipArray[enAnimClip_Run].Load("Assets/purototype/walk.tka");
 	m_animationClipArray[enAnimClip_Run].SetLoopFlag(true);
 	//モデルの読み込み
-	m_player2.Init("Assets/purototype/sushi.tkm", m_animationClipArray, enAnimClip_Num, enModelUpAxisY);
-	//キャラコンを初期化する。
-	m_characterController.Init(25.0f, 75.0f, { 0.0f, 0.0f, 0.0f });
-	m_rotation.SetRotationDegX(-90.0f);
+	m_player2.Init("Assets/purototype/sushi.tkm", m_animationClipArray, enAnimClip_Num, enModelUpAxisZ);
 
-	//m_player2.SetPosition(500.0f, 0.0f, 500.0f);
-	//m_player2.Update();
+	m_position.x = 100.0f;
+	//キャラコンを初期化する。
+	m_characterController.Init(25.0f, 75.0f, m_position);
+	m_rotation.SetRotationDegX(-90.0f);
+	m_rotation.AddRotationDegZ(-180.0f);
+	m_player2.SetRotation(m_rotation);
+
 	return true;
 }
 
@@ -75,16 +77,16 @@ void Player2::Move()
 	}
 	*/
 
-
+	/*
 	// 平行移動
 	m_position2.x += g_pad[1]->GetLStickXF();
+	
 	m_position2.y += g_pad[1]->GetLStickYF();
+	*/
 
-
-	m_position2 = m_characterController.Execute(moveSpeed, g_gameTime->GetFrameDeltaTime());
+	m_position = m_characterController.Execute(moveSpeed, g_gameTime->GetFrameDeltaTime());
 	m_player2.SetScale(m_scale);
-	m_player2.SetPosition(m_position2);
-	m_player2.SetRotation(m_rotation);
+	m_player2.SetPosition(m_position);
 	m_player2.Update();
 }
 

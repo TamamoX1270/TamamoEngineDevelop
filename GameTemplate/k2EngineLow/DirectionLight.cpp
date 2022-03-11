@@ -27,9 +27,9 @@ namespace nsK2EngineLow {
 		m_light.m_spotLig.spColor.z = 10.0f;
 
 		//初期方向は斜め下にする。
-		m_light.m_spotLig.spDirection.x = -1.0f;
+		m_light.m_spotLig.spDirection.x = 0.0f;
 		m_light.m_spotLig.spDirection.y = -1.0f;
-		m_light.m_spotLig.spDirection.z = 1.0f;
+		m_light.m_spotLig.spDirection.z = -1.0f;
 		//方向データなので、大きさを１にする必要があるので正規化する。
 		m_light.m_spotLig.spDirection.Normalize();
 
@@ -56,7 +56,7 @@ namespace nsK2EngineLow {
 		//ライトは斜め上から当たっている。
 		m_light.m_directionLig.ligDirection.x = 0.0f;
 		m_light.m_directionLig.ligDirection.y = 1.0f;
-		m_light.m_directionLig.ligDirection.z = -1.0f;
+		m_light.m_directionLig.ligDirection.z = 1.0f;
 		
 		//正規化する。
 		m_light.m_directionLig.ligDirection.Normalize();

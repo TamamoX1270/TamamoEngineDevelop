@@ -3,6 +3,11 @@
 #include "Player1.h"
 #include "Player2.h"
 
+namespace
+{
+	Vector3 CameraFarPlus = { 0.0f,0.0f,10.0f };
+}
+
 bool GameCamera::Start()
 {
 	//注視点から視点までのベクトルを設定。
@@ -37,7 +42,7 @@ void GameCamera::Update()
 	target = (m_player->GetPlayer1Position()+ m_player2->GetPlayer2Position())/2;
 	//プレイヤの足元からちょっと上を注視点とする。
 	target.y += 80.0f;
-
+	target.z -= 80.0f;
 	Vector3 toCameraPosOld = m_toCameraPos;
 	//パッドの入力を使ってカメラを回す。
 	float x = g_pad[0]->GetRStickXF();
@@ -67,7 +72,7 @@ void GameCamera::Update()
 		//カメラが下向きすぎ。
 		m_toCameraPos = toCameraPosOld;
 	}
-
+	
 	//視点を計算する。
 	Vector3 pos = target + m_toCameraPos;
 	//メインカメラに注視点と視点を設定する。
