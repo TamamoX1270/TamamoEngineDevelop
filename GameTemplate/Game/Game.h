@@ -34,6 +34,7 @@ private:
 	Vector3			m_spPosition;					//スポットライトのポジション
 	Vector3			m_spDirection;                  //スポットライトの方向
 
+	SpriteRender    m_spriteHP;					//HPばー
 	//ここからは仮で追加したもの
 private:
 	void Try();
@@ -46,8 +47,9 @@ private:
 	int m_syoyu = 0;
 	int m_wasabi = 0;
 
-	int m_hp;
-	int m_Maxhp;
+	int m_hp=10;
+	int m_Maxhp=10;
+
 
 	GameCamera* m_gameCamera;
 };

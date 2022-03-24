@@ -89,6 +89,29 @@ namespace nsK2EngineLow {
 			SetScale({ x, y, z });
 		}
 		/// <summary>
+		/// ボーンの名前からボーン番号を検索。
+		/// </summary>
+		/// <param name="boneName">ボーンの名前</param>
+		/// <returns>ボーン番号。見つからなかった場合は-1が返ってきます。</returns>
+		int FindBoneID(const wchar_t* boneName) const
+		{
+			return m_skeleton.FindBoneID(boneName);
+		}
+		/// <summary>
+		/// ボーン番号からボーンを取得。
+		/// </summary>
+		/// <param name="boneNo">ボーン番号</param>
+		/// <returns>ボーン</returns>
+		Bone* GetBone(int boneNo) const
+		{
+			return m_skeleton.GetBone(boneNo);
+		}
+		void AddAnimationEvent(AnimationEventListener eventListener)
+		{
+			m_animation.AddAnimationEventListener(eventListener);
+		}
+
+		/// <summary>
 		/// アニメーション再生。
 		/// </summary>
 		/// <param name="animNo">アニメーションクリップの番号。</param>
@@ -97,6 +120,14 @@ namespace nsK2EngineLow {
 		{
 			m_animation.Play(animNo, interpolateTime);
 		}
+		/// <summary>
+		/// アニメーションの再生中？
+		/// </summary>
+		bool IsPlayingAnimation() const
+		{
+			return m_animation.IsPlaying();
+		}
+
 	private:
 		// スケルトンを初期化
 		void InitSkeleton(const char* filePath);

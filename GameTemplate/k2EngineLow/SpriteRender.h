@@ -109,7 +109,39 @@ namespace nsK2EngineLow {
 		/// </summary>
 		/// <param name="rc">レンダーコンテキスト。</param>
 		void Draw(RenderContext& rc);
-		
+
+		void SetLimitedX(const float x)
+		{
+			m_sprite.SetX(x);
+		}
+		void SetLimitedY(const float y)
+		{
+			m_sprite.SetY(y);
+		}
+
+		/// <summary>
+		/// 原点を設定。原点を元として引数の分だけ画像を生成する。
+		/// Left 0.5だと左から五割だけ画像が描写される。
+		/// </summary>
+		/// <param name="isLeft">原点。</param>
+		void SetIsDisplayRestrictionLeftSide(const bool isLeft)
+		{
+			m_sprite.SetIsDisplayRestrictionLeftSide(isLeft);
+		}
+		void SetIsDisplayRestrictionRightSide(const bool isRight)
+		{
+			m_sprite.SetIsDisplayRestrictionRightSide(isRight);
+		}
+
+		void SetIsDisplayRestrictionUpSide(const bool isUp)
+		{
+			m_sprite.SetIsDisplayRestrictionUpSide(isUp);
+		}
+		void SetIsDisplayRestrictionDownSide(const bool isDown)
+		{
+			m_sprite.SetIsDisplayRestrictionDownSide(isDown);
+		}
+
 		/// <summary>
 		/// 2D描画パスから呼ばれる処理。
 		/// </summary>
