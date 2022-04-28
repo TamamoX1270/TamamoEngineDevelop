@@ -9,16 +9,16 @@ bool Game::Start()
 {
 	//m_spriteRender.Init("Assets/sprite/gameclear.dds", 300.0f, 200.0f);
 	
-	m_spriteHP.Init("Assets/sprite/hpbar.dds", 300.0f, 200.0f);
+	/*m_spriteHP.Init("Assets/sprite/hpbar.dds", 300.0f, 200.0f);
 	m_spriteHP.SetPivot(Vector2(0.0f, 0.5f));
 	m_spriteHP.SetPosition(Vector3(-150.0f, 200.0f, 0.0f));
-	m_spriteHP.Update();
+	m_spriteHP.Update();*/
 
 	//プレイヤーオブジェクトを作成する。
 	m_player = NewGO<Player1>(0, "player1");
 	//	m_player2 = NewGO<Player2>(0, "player2");
 	//背景オブジェクトを作成する。
-	//	m_backGround = NewGO<BackGround>(0, "background");
+	m_backGround = NewGO<BackGround>(0, "background");
 	
 	//	m_gameCamera = NewGO<GameCamera>(0, "gamecamera");
 
@@ -26,27 +26,22 @@ bool Game::Start()
 }
 void Game::Update()
 {
-	//ふぉんと
-	
-	//int b = 55;
-	wchar_t wcsbuf1[256];
-	swprintf_s(wcsbuf1, 256, L"%d",m_hp);
-
-	//表示するテキストを設定。
-	m_fontRender.SetText(wcsbuf1);
-	//フォントの位置を設定。
-	m_fontRender.SetPosition(Vector3(-400.0f, 300.0f, 0.0f));
-	//フォントの大きさを設定。
-	m_fontRender.SetScale(1.5f);
-	//黒色に設定
-	m_fontRender.SetColor(g_vec4White);
-	
-
-	m_pointligpos.x = 5000.0f;
+	// 左スティック(キーボード：WASD)で平行移動。
+	m_pointligpos.x += g_pad[0]->GetLStickXF();
+	m_pointligpos.y += g_pad[0]->GetLStickYF();
+	//	g_directionLig.SetPointPos(m_pointligpos);
+	m_pointligpos.z += g_pad[0]->GetLStickYF();
+	m_pointligpos.y = 50.0f;
 	g_directionLig.SetPointPos(m_pointligpos);
+	/*
+	//ディレクションライトの当たる方向とカラーをセットできちゃいます
+	g_directionLig.SetLigDirection({ 1.0f,-1.0f,-1.0f });
+	g_directionLig.SetLigColor({ 0.5f,0.5f,0.5f });
+	*/
+	//g_directionLig.SetPointPos(m_pointligpos);
+	g_directionLig.SetPointColor({ 0.5f,0.5f,0.5f });
 
-	m_spPosition.y = 50.0f;
-	m_spPosition.x = 5000.0f;
+	m_spPosition.x = 0000.0f;
 	g_directionLig.SetSpotPos(m_spPosition);//スポットライトの位置を設定
 
 	g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
@@ -165,6 +160,6 @@ void Game::Try()
 void Game::Render(RenderContext& rc)
 {
 	//m_spriteRender.Draw(rc);                 //タイトルの描画
-	m_spriteHP.Draw(rc);
-	m_fontRender.Draw(rc);
+	//m_spriteHP.Draw(rc);
+	//m_fontRender.Draw(rc);
 }

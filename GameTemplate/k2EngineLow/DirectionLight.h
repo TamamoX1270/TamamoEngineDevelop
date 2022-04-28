@@ -85,6 +85,14 @@ namespace nsK2EngineLow {
 			m_light.m_pointLig.ptColor = col;
 		}
 		/// <summary>
+		/// ポイントライトの射出範囲を設定
+		/// </summary>
+		/// <param name="range"></param>
+		void SetSpotRange(const float& ptrange)
+		{
+			m_light.m_pointLig.ptRange = ptrange;
+		}
+		/// <summary>
 		/// スポットライトの位置を設定
 		/// </summary>
 		/// <param name="col"></param>
@@ -107,6 +115,15 @@ namespace nsK2EngineLow {
 		void SetSpotDir(const Vector3& dil)
 		{
 			m_light.m_spotLig.spDirection = dil;
+		}
+
+		/// <summary>
+		/// スポットライトの射出角度を設定
+		/// </summary>
+		/// <param name="range"></param>
+		void SetSpotAngle(const int& spangle)
+		{
+			m_light.m_spotLig.spAngle = Math::DegToRad(spangle);
 		}
 		Light& GetLight()
 		{

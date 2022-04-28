@@ -16,28 +16,29 @@ namespace nsK2EngineLow {
 		m_light.m_ambientLig.ambientLight.z = 0.3f;
 		
 
-
+		/*
 		//初期座標はX = 0、Y = 50、Z = 0にする。
 		m_light.m_spotLig.spPosition.x = 0.0f;
 		m_light.m_spotLig.spPosition.y = 0.0f;
 		m_light.m_spotLig.spPosition.y = 50.0f;
+		*/
 		//ライトのカラーを設定。R = 10、G = 10、B = 10にする。
-		m_light.m_spotLig.spColor.x = 10.0f;
-		m_light.m_spotLig.spColor.y = 10.0f;
-		m_light.m_spotLig.spColor.z = 10.0f;
+		m_light.m_spotLig.spColor.x = .0f;
+		m_light.m_spotLig.spColor.y = .0f;
+		m_light.m_spotLig.spColor.z = .0f;
+		
 
 		//初期方向は斜め下にする。
 		m_light.m_spotLig.spDirection.x = 0.0f;
 		m_light.m_spotLig.spDirection.y = -1.0f;
-		m_light.m_spotLig.spDirection.z = -1.0f;
+		m_light.m_spotLig.spDirection.z = 0.0f;
 		//方向データなので、大きさを１にする必要があるので正規化する。
 		m_light.m_spotLig.spDirection.Normalize();
 
 		//射出範囲は300
-		m_light.m_spotLig.spRange = 300.0f;
+		m_light.m_spotLig.spRange = 500.0f;
 		//射出角度は25度。
-		m_light.m_spotLig.spAngle = Math::DegToRad(25.0f);
-
+		m_light.m_spotLig.spAngle = Math::DegToRad(125.0f);
 
 
 		//ポイントライトの初期座標を設定する。
@@ -46,7 +47,7 @@ namespace nsK2EngineLow {
 		m_light.m_pointLig.ptPosition.z = 50.0f;
 		
 		//ポイントライトの初期カラーを設定する
-		m_light.m_pointLig.ptColor.x = 10.0f;
+		m_light.m_pointLig.ptColor.x = 0.0f;
 		m_light.m_pointLig.ptColor.y = 0.0f;
 		m_light.m_pointLig.ptColor.z = 0.0f;
 
@@ -54,18 +55,18 @@ namespace nsK2EngineLow {
 		m_light.m_pointLig.ptRange = 100.0f;
 		
 		//ライトは斜め上から当たっている。
-		m_light.m_directionLig.ligDirection.x = 0.0f;
-		m_light.m_directionLig.ligDirection.y = 1.0f;
-		m_light.m_directionLig.ligDirection.z = 1.0f;
+		m_light.m_directionLig.ligDirection.x = 1.0f;
+		m_light.m_directionLig.ligDirection.y = 0.0f;
+		m_light.m_directionLig.ligDirection.z = -1.0f;
 		
 		//正規化する。
 		m_light.m_directionLig.ligDirection.Normalize();
 		
 		//ライトのカラーは灰⾊。
 		
-		m_light.m_directionLig.ligColor.x = 0.5f;
-		m_light.m_directionLig.ligColor.y = 0.5f;
-		m_light.m_directionLig.ligColor.z = 0.5f;
+		m_light.m_directionLig.ligColor.x = 0.0f;
+		m_light.m_directionLig.ligColor.y = 0.0f;
+		m_light.m_directionLig.ligColor.z = 0.0f;
 		
 		
 		

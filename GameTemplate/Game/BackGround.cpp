@@ -17,7 +17,7 @@ bool BackGround::Start()
 {
 	m_backGround.SetScale(Vector3(1.0f, 1.0f, 1.0f));
 
-	m_backGround.Init("Assets/modelData/stage/karigeta.tkm");
+	m_backGround.Init("Assets/modelData/stage/bg.tkm");
 
 	//	m_backGround.SetScale(m_scale);
 	//	m_backGround.Update();
@@ -26,7 +26,7 @@ bool BackGround::Start()
 		m_backGround.GetModel(),
 		m_backGround.GetModel().GetWorldMatrix());
 	//“–‚½‚è”»’è‚Ì‰ÂŽ‹‰»B
-	PhysicsWorld::GetInstance()->EnableDrawDebugWireFrame();
+	//PhysicsWorld::GetInstance()->EnableDrawDebugWireFrame();
 	return true;
 }
 void BackGround::Render(RenderContext& rc)
