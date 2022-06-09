@@ -43,7 +43,7 @@ void Player1::Update()
 	m_position.x += g_pad[0]->GetLStickXF();
 	m_position.y += g_pad[0]->GetLStickYF();
 	a++;
-	m_rotation.AddRotationDegY(a);
+	//m_rotation.AddRotationDegY(a);
 	m_position = m_characterController.Execute(moveSpeed, g_gameTime->GetFrameDeltaTime());
 	m_player.SetPosition(m_position);
 	m_player.SetRotation(m_rotation);

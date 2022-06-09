@@ -18,7 +18,7 @@ bool Game::Start()
 	m_player = NewGO<Player1>(0, "player1");
 	//	m_player2 = NewGO<Player2>(0, "player2");
 	//背景オブジェクトを作成する。
-	m_backGround = NewGO<BackGround>(0, "background");
+	//m_backGround = NewGO<BackGround>(0, "background");
 	
 	//	m_gameCamera = NewGO<GameCamera>(0, "gamecamera");
 
@@ -41,7 +41,7 @@ void Game::Update()
 	//g_directionLig.SetPointPos(m_pointligpos);
 	g_directionLig.SetPointColor({ 0.5f,0.5f,0.5f });
 
-	m_spPosition.x = 0000.0f;
+	m_spPosition.x = 0.0f;
 	g_directionLig.SetSpotPos(m_spPosition);//スポットライトの位置を設定
 
 	g_directionLig.SetLigColor({0.5f,0.5f,0.5f});
